@@ -4,28 +4,37 @@
         <div class="container">
 
 
-          <div class="card">
+          <div class="card" v-on:mouseover="active = !active" v-on:mouseleave="active = !active">
             <div class="card--image">
-              <img src="../assets/images/me-hi.jpeg" alt="image">
+              <img src="../assets/images/me-hi.jpeg" alt="Ken Taylor on a music video set" v-bind:style="{opacity: active ? 0.6 : 1 }">              
             </div>
             <div class="card--info info--1">
               <span class="info--text">WEB DEVELOPER</span>
               <div class="icon">
-                <ion-icon name="add-outline"></ion-icon>
+                <span class="expand">+</span>
               </div>
               <div class="info--image">
-                <img src="https://source.unsplash.com/-HxIhfS_dUk" alt="info image">
+                <img src="../assets/images/webdev.png" alt="info image">
               </div>
             </div>
             <div class="card--info info--2">
               <span class="info--text">MUSICIAN</span>
               <div class="icon">
-                <ion-icon name="add-outline"></ion-icon>
+                <span class="expand">+</span>                
               </div>
               <div class="info--image">
-                <img src="https://source.unsplash.com/-HxIhfS_dUk" alt="info image">
+                <img src="../assets/images/me2.jpg" alt="info image">
               </div>
             </div>
+            <!-- <div class="card--info info--3">
+              <span class="info--text">Dog Father</span>
+              <div class="icon">
+                <span class="expand">+</span>                
+              </div>
+              <div class="info--image">
+                <img src="../assets/images/me2.jpg" alt="info image">
+              </div>
+            </div> -->
           </div>
 
         </div>
@@ -33,7 +42,12 @@
 </template>
 
 <script>
-export default {
+export default {  
+  data() {
+    return {
+      active: false
+    }
+  },
 
 }
 </script>
@@ -63,18 +77,22 @@ h2 {
 	box-shadow: 0 2.8px 2.2px rgba(0, 0, 0, 0.014), 0 6.7px 5.3px rgba(0, 0, 0, 0.02),
 		0 12.5px 10px rgba(0, 0, 0, 0.025), 0 22.3px 17.9px rgba(0, 0, 0, 0.03),
 		0 41.8px 33.4px rgba(0, 0, 0, 0.036), 0 100px 80px rgba(0, 0, 0, 0.05);
+  background-color: black;
 
 	&--image {
 		width: 100%;
 		height: 100%;
+    position: relative;
 		display: flex;
 		justify-content: center;
 		align-items: flex-end;
 		overflow: hidden;
 		img {
+      position: absolute;
 			width: 140%;
 			height: 140%;
 			object-fit: cover;
+      transition: 0.3s ease-in-out;
       
 		}
 	}
@@ -121,8 +139,8 @@ h2 {
 			right: 80%;
 			.info--image {
 				img {
-					top: -80%;
-					left: -20%;
+					top: 0%;
+					left: 0%;
 				}
 			}
 		}
@@ -132,8 +150,8 @@ h2 {
 			right: 15%;
 			.info--image {
 				img {
-					right: -20%;
-					bottom: -80%;
+					right: 0%;
+					bottom: 0%;
 				}
 			}
 		}
@@ -148,8 +166,11 @@ h2 {
 			display: flex;
 			justify-content: center;
 			align-items: center;
-			ion-icon {
-				color: white;
+			.expand {
+				color: rgba(255,255,255,0.4);
+        font-size: 20px;
+        position: relative;
+        top: -1px;
 			}
 		}
 
@@ -177,8 +198,8 @@ h2 {
 			overflow: hidden;
 			img {
 				position: absolute;
-				width: 340%;
-				height: 340%;
+				width: 100%;
+				height: 100%;
 				object-fit: cover;
 				opacity: 0;
 				transition: opacity 550ms ease;

@@ -2,7 +2,7 @@
   <section class="hero">
     <div class="container">
       <div class="image-container">
-              <img src="../assets/images/me2.jpg" alt="Ken Taylor on set">
+              <img src="../assets/images/headshot.jpg" alt="Ken Taylor on set">
             </div>
       <h1 class="heading">Hello! <span class="break">My name is <span class="name">Ken.</span></span></h1>
     </div>
@@ -55,13 +55,25 @@ export default {
   }
 
   .image-container {
-    max-width: 600px;
+    max-width: 300px;
+    height: auto;
     opacity: 0;
+    display: flex;
+    -webkit-box-shadow: -37px 24px 50px -1px rgba(0,0,0,0.48); 
+    box-shadow: -37px 24px 50px -1px rgba(0,0,0,0.48);
+
+    img {
+      width: 100%;
+      height: 100%;
+    }
+    @include tablet-up {
+      max-width: 300px;
+    }
     // transform: translateX(100px)
 }
 
 .heading {
-  font-size: 6rem;
+  font-size: 5.5rem;
   color: white;
   line-height: 1;
   padding-left: 40px;
